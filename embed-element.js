@@ -5,7 +5,6 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-
 /**
  * `embed-element`
  * 
@@ -20,45 +19,60 @@ export class EmbedElement extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/embed-element.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      
     };
   }
-
+  
   // Lit scoped styles
   static get styles() {
     return [super.styles,
     css`
       :host {
+        margin-top: var(--ddd-spacing-0);
+        margin-bottom: var(--ddd-spacing-0);
+      }
+      #embed-background {
+        display: inline-block;
+        background-color: var(--ddd-theme-default-limestoneLight);
+        border-radius: var(--ddd-radius-sm);
+
+      }
+      #website-title {
+        width: 0;
+        min-width: 100%;
+        margin-top: var(--ddd-spacing-3);
+        margin-bottom: var(--ddd-spacing-0);
+        font-size: var(--ddd-font-size-2xs);
+        padding: var(--ddd-spacing-3);
+      }
+      #content-title {
+        width: 0;
+        min-width: 100%;
+        padding: var(--ddd-spacing-3);
+        font-size: var(--ddd-font-size-s);
+        color: var( --ddd-theme-default-link);
+      }
+      #embed-descript {
+        height: 39px;
+        width: ;
+        display: flex;
+        font-size: var(--ddd-font-size-4xs);
+        margin: var(--ddd-spacing-3);
+      }
+      #embed-img {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
-      }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
-      }
-      h3 span {
-        font-size: var(--embed-element-label-font-size, var(--ddd-font-size-s));
+        margin: var(--ddd-spacing-3);
+        height: auto; 
+        width: auto; 
+        max-width: 512px;
+        max-height: 512px;
       }
     `];
   }
@@ -66,10 +80,15 @@ export class EmbedElement extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
-</div>`;
+    <div id="embed-background">
+      <h1 id="website-title">The Title</h1>
+      <a id="content-title">Content Title</a>
+      <p id="embed-descript">Description of the site that should end like this if to long like this text should be for instance bla bla bla.</p>
+      <div>
+      <img id="embed-img" src="https://freesvg.org/img/Placeholder.png"></img>
+      </div>
+    </div>
+    `;
   }
 
   /**
