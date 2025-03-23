@@ -12,13 +12,6 @@
       margin: 0;
       padding: 0;
     }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    #example {
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
   </style>
   <title>embed-element</title>
 </head>
@@ -27,55 +20,15 @@
   <div id="demo">
     <h1>link-preview-card</h1>
     <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
-    <link-preview-card href="https://www.redhat.com/en"></link-preview-card>
-    <h2>Slot usage</h2>
-    <link-preview-card data-accent="2" data-primary="17" href="https://www.alanwake.com/"><div>Sample slot content</div></link-preview-card>
-    <h2>Property usage</h2>
-    <link-preview-card id="example" title="Sample property title" href="https://hax.psu.edu/" ></link-preview-card>
+    <h2>psu.edu</h2>
+    <link-preview-card href="https://www.psu.edu/"></link-preview-card>
+    <h2>Image</h2>
+    <link-preview-card  href="https://www.alanwake.com/"><div>Sample slot content</div></link-preview-card>
+    <h2>Long Text</h2>
+    <link-preview-card href="https://www.forbes.com/sites/quickerbettertech/2025/03/16/business-tech-news-the-best-cheap-windows-laptops-for-your-small-business/" ></link-preview-card>
+    <h2>Error detection</h2>
+    <link-preview-card href="yes" ></link-preview-card>
   </div>
   <script type="module" src="./link-preview-card.js"></script>
-
-  <!-- Take HAX, the Web and you further down the rabbit hole -->
-  <style>
-    #follow-the-white-rabbit {
-      margin: var(--ddd-spacing-4) auto 64px  16px;
-      background-color: var(--ddd-accent-4);
-      color: black;
-    }
-    #follow-the-white-rabbit[open] summary {
-      background-color: var(--ddd-accent-4) !important;
-      color: black;
-    }
-    #follow-the-white-rabbit[open] .content {
-      padding: 0 var(--ddd-spacing-4);
-    }
-    #follow-the-white-rabbit ul,
-    #follow-the-white-rabbit li {
-      padding: 0;
-      margin: 0;
-    }
-    #follow-the-white-rabbit li {
-      font-size: var(--ddd-font-size-xs);
-      list-style: none;
-    }
-    #follow-the-white-rabbit li strong,
-    #follow-the-white-rabbit li a {
-      padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
-      color: black;
-      display: block;
-      font-weight: bold;
-    }
-    #follow-the-white-rabbit li:focus-within a,
-    #follow-the-white-rabbit li:hover a {
-      background-color: black;
-      color: yellow;
-    }
-  </style>
-  <details id="follow-the-white-rabbit" open>
-    <summary>How to Develop</summary>
-    <div class="content">
-    </div>
-  </details>
 </body>
 </html>
